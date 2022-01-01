@@ -1,0 +1,31 @@
+﻿@model List<UdemyConsumeAPI.ResponseModel.ProductResponseModel>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Web Api Ders</title>
+</head>
+<body>
+    <a href="/Home/Create">Yeni Ekle</a>
+    <table class="">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Create Date</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Perice</td>
+                <td>@item.Stock</td>
+                <td>@item.CreateDate</td>
+                <td><a href="/Home/Update/@item.Id">Güncelle</a></td>
+                <td><a href="/Home/Remove/@item.Id">Sil</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

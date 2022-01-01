@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiUdemy", "WebApiUdemy\WebApiUdemy.csproj", "{01226B5A-FF99-4853-9693-D310AFF0ECAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyConsumeAPI", "UdemyConsumeAPI\UdemyConsumeAPI.csproj", "{757CE279-6687-4590-82EF-618A3AC3460A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01226B5A-FF99-4853-9693-D310AFF0ECAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01226B5A-FF99-4853-9693-D310AFF0ECAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01226B5A-FF99-4853-9693-D310AFF0ECAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01226B5A-FF99-4853-9693-D310AFF0ECAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{757CE279-6687-4590-82EF-618A3AC3460A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757CE279-6687-4590-82EF-618A3AC3460A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757CE279-6687-4590-82EF-618A3AC3460A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757CE279-6687-4590-82EF-618A3AC3460A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3449E80-F118-4227-B1B4-5D46982E0B3B}
+	EndGlobalSection
+EndGlobal

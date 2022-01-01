@@ -1,0 +1,28 @@
+﻿@model UdemyConsumeAPI.ResponseModel.ProductResponseModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ürün Güncelle Ekle</title>
+</head>
+<body>
+
+    <form action="/Home/Update" method="post">
+        <input type="hidden" name="Id" value="@Model.Id"  />
+        <div>
+            <label>Ürün Adı</label>
+            <input type="text" name="Name" value="@Model.Name" />
+        </div>
+        <div>
+            <label>Ürün Stok Adedi</label>
+            <input type="text" name="Stock" value="@Model.Stock" />
+        </div>
+        <div>
+            <label>Ürün Fiyatı</label>
+            <input type="text" name="Perice" value="@Model.Perice" />
+        </div>
+        <div>
+            <a href="/Home/Index">Geri Dön</a>
+            <button type="submit">Güncelle</button>
+        </div>
+    </form>
+</body>
+</html>
