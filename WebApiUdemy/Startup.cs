@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,10 +7,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using WebApiUdemy.Data;
 using WebApiUdemy.Interface;
@@ -32,6 +35,21 @@ namespace WebApiUdemy
             services.AddDbContext<ProductContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("Local"));
+            });
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+            {
+                opt.RequireHttpsMetadata = false;
+                opt.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidIssuer = "http://localhost",
+                    ValidAudience = "http://localhost",
+                    ValidateIssuer=true,
+                    ValidateAudience=true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("ilhandanissivassusehri")),
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
             });
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddControllers().AddNewtonsoftJson(opt =>
@@ -62,6 +80,7 @@ namespace WebApiUdemy
             }
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseCors("UdemyCorsPolicy");
             app.UseAuthorization();
 

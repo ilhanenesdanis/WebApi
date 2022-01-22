@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,6 +23,7 @@ namespace WebApiUdemy.Controllers
         {
             _productRepository = productRepository;
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet("getall")]
         public async Task<IActionResult> GetAll()
         {
@@ -37,7 +39,6 @@ namespace WebApiUdemy.Controllers
                 return NotFound(id);
             }
             return Ok(data);
-            //return await _productRepository.GetById(id);
         }
         [HttpPost]
         public async Task<IActionResult> Create(Product product)
